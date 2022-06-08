@@ -31,10 +31,26 @@ gmx trjconv -f input_flat_membraneonly.pdb -pbc whole \
 We can now use BUMPy to create different U-shaped geometries by suitably duplicating this patch.
 For example:
 ```bash
-python BumPy/BUMPy/bumpy.py -f input_whole.pdb -s semicylinder_plane_U -z 20 -g r_cylinder:60 l_cylinder:100 r_junction:0 l_flat:200 l_margin:0 -o out_ecoli.pdb
+python BumPy/BUMPy/bumpy.py -f input_whole.pdb -s semicylinder_plane_U -z 20 -g r_cylinder:60 l_cylinder:100 \
+r_junction:0 l_flat:200 l_margin:0 -p topol.top -n index.ndx --gen_dummy_particles --dummy_grid_thickness 65 \
+-o out_ecoli.pdb
 ```
 Note: (1) `l_margin` is a new flag added personally to control a possible crack between the curved and flat part of the U-shape.  
 &emsp;&emsp;&ensp;&ensp; (2) Optionally use  `--gen_dummy_particles --dummy_grid_thickness 50` flags to add dummy-particles. See documentation or publication for further info.  
 &emsp;&emsp;&ensp;&ensp; (3) [BUMPy: A Model-Independent Tool for Constructing Lipid Bilayers of Varying Curvature and Composition](10.1021/acs.jctc.8b00765)
+
+BUMPy generates box dimensions from the coordinates.
+We want the structure to have extra space around it and also to be centred.  
+We choose the output to be `gro`
+```bash
+gmx editconf -f out_ecoli.pdb -box 10 24 32 -o out_ecoli_centred.gro -c
+```
+#### Run Gromacs
+There is a bash script for it:  
+`/Users/samiransen23/BILAYERMIX_PROJECT/examples/ecoli/prepare_gromacs/ecoli-curved/job_relax_Ushape.sh`
+Details:  
+Minimize: 5000 steps  
+NVT equilibrate: 10 - 50 ns broken down into different time-step steps.
+NPT: Not meaningful because we are in vacuum.
 
 <img src="/Users/samiransen23/BILAYERMIX_PROJECT/examples/ecoli/build_input/ecoli-curved/images/semicylinder_plane_U/r_cylinder=60_l_cylinder=100.tga" width="500"/>
