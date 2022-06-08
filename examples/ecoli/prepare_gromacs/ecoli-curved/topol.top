@@ -1,0 +1,16 @@
+#include "toppar/martini_dummy.itp"
+#include "toppar/martini_v2.0_lipids_all_201506.itp"
+
+
+
+[ system ]
+BUMPy system
+
+[ molecules ]
+CDL2 107
+POPE 691
+POPG 237
+CDL2 82
+POPE 562
+POPG 192
+DUMY 4389
