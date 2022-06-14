@@ -48,15 +48,15 @@ gmx mdrun -deffnm out/step6.2_equilibration -rdd 1.3 -v
 gmx grompp -f mdp/step6.3_equilibration.mdp -p topol.top -n index.ndx -c out/step6.2_equilibration.gro -r out/step6.2_equilibration.gro -o out/step6.3_equilibration.tpr
 gmx mdrun -deffnm out/step6.3_equilibration -rdd 1.3 -v
 
- step 6.4: equilibration NVT timestep = 0.010 fs
+# step 6.4: equilibration NVT timestep = 0.010 fs
 gmx grompp -f mdp/step6.4_equilibration.mdp -p topol.top -n index.ndx -c out/step6.3_equilibration.gro -r out/step6.3_equilibration.gro -o out/step6.4_equilibration.tpr
 gmx mdrun -deffnm out/step6.4_equilibration -rdd 1.3 -v
 
- step 6.5: equilibration NVT timestep = 0.015 fs
+# step 6.5: equilibration NVT timestep = 0.015 fs
 gmx grompp -f mdp/step6.5_equilibration.mdp -p topol.top -n index.ndx -c out/step6.4_equilibration.gro -r out/step6.4_equilibration.gro -o out/step6.5_equilibration.tpr
 gmx mdrun -deffnm out/step6.5_equilibration -rdd 1.3 -v
 
- step 6.6: equilibration NVT timestep = 0.020 fs
+# step 6.6: equilibration NVT timestep = 0.020 fs
 gmx grompp -f mdp/step6.6_equilibration.mdp -p topol.top -n index.ndx -c out/step6.5_equilibration.gro -r out/step6.5_equilibration.gro -o out/step6.6_equilibration.tpr
 gmx mdrun -deffnm out/step6.6_equilibration -rdd 1.3 -v
 
