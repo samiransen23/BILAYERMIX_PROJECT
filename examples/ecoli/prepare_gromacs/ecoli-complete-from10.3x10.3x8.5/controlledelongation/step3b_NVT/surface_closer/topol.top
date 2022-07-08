@@ -1,0 +1,21 @@
+#include "../toppar/martini_surf.itp"
+#include "../toppar/martini_v2.0_lipids_all_201506.itp"
+#include "../toppar/martini_v2.0_ions.itp"
+
+[ system ]
+BUMPy system in water
+
+[ molecules ]
+POPE              862
+POPG              284
+POPE              698
+POPG              225
+POPE              862
+POPG              284
+POPE              698
+POPG              225
+W               50101
+NA                811
+GRA             72816
+W               32210
+NA                207

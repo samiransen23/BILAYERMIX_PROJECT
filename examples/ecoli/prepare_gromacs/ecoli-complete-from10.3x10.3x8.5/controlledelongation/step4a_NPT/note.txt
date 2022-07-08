@@ -1,0 +1,2 @@
+Trajectories found in "/cluster/projects/nn4654k/samiran/BILAYERMIX_PROJECT/examples/ecoli/prepare_gromacs/ecoli-complete-from10.3x10.3x8.5/controlledelongation/step4_NPT/gromacs_out"
+job 383966
